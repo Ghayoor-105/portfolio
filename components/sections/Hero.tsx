@@ -1,6 +1,10 @@
+import { IntelligenceField } from "@/components/intelligence-field/IntelligenceField";
+
 export function Hero() {
   return (
     <header className="relative flex min-h-screen w-full flex-col items-start justify-center overflow-hidden border-b border-outline-strong bg-surface-dim px-margin-mobile pt-16 md:px-margin-desktop">
+      <IntelligenceField />
+
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <div className="mb-12 flex w-full flex-col justify-between border-b border-outline-strong pb-4 font-mono text-[13px] uppercase tracking-widest text-on-surface-subdued md:flex-row">
           <span>GHAYOOR KHAN / AI ENGINEER / SOFTWARE ENGINEER</span>
