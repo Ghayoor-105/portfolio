@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ghayoor Khan // AI Laboratory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-variant": "#333539",
+                "surface-container-high": "#282a2e",
+                "on-surface": "#EDEDF0",
+                "primary-container": "#00e5ff",
+                "on-primary-container": "#00626e",
+                "error": "#ffb4ab",
+                "outline-strong": "#222A3A",
+                "secondary": "#c3c6d3",
+                "surface": "#111317",
+                "on-primary": "#00363d",
+                "on-primary-fixed": "#001f24",
+                "surface-container-low": "#1a1c20",
+                "surface-tint": "#00daf3",
+                "secondary-fixed-dim": "#c3c6d3",
+                "secondary-container": "#454953",
+                "on-tertiary": "#00363e",
+                "outline": "#849396",
+                "tertiary-fixed-dim": "#2fd9f4",
+                "tertiary-container": "#41e3fe",
+                "on-tertiary-fixed-variant": "#004e5a",
+                "on-surface-subdued": "#626B7D",
+                "background": "#0c0e12",
+                "secondary-fixed": "#dfe2ef",
+                "on-tertiary-container": "#006270",
+                "system-error": "#F87171",
+                "on-secondary-container": "#b5b8c4",
+                "on-secondary": "#2c303a",
+                "surface-container": "#181E2A",
+                "surface-container-highest": "#333539",
+                "on-background": "#e2e2e8",
+                "deep-void": "#0c0e12",
+                "on-secondary-fixed": "#181c25",
+                "tertiary-fixed": "#a2eeff",
+                "system-success": "#10B981",
+                "inverse-surface": "#e2e2e8",
+                "primary-fixed-dim": "#00daf3",
+                "on-error": "#690005",
+                "on-surface-muted": "#949BA8",
+                "tertiary": "#c7f4ff",
+                "outline-variant": "#3b494c",
+                "inverse-primary": "#006875",
+                "surface-bright": "#37393e",
+                "error-container": "#93000a",
+                "on-surface-variant": "#bac9cc",
+                "primary-fixed": "#9cf0ff",
+                "inverse-on-surface": "#2f3035",
+                "surface-container-lowest": "#0c0e12",
+                "on-secondary-fixed-variant": "#434751",
+                "on-primary-fixed-variant": "#004f58",
+                "on-tertiary-fixed": "#001f25",
+                "surface-dim": "#111317",
+                "primary": "#00e5ff",
+                "on-error-container": "#ffdad6",
+                "outline-subtle": "#151A24"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-desktop": "48px",
+                "gutter-lg": "24px",
+                "margin-mobile": "16px",
+                "section-gap-mobile": "32px",
+                "section-gap-desktop": "64px",
+                "gutter-sm": "16px",
+                "unit": "4px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "display-xl": [
+                        "Inter"
+                ],
+                "stat-lg": [
+                        "JetBrains Mono"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-sm": [
+                        "Inter"
+                ],
+                "display-sm": [
+                        "Inter"
+                ],
+                "display-xl-mobile": [
+                        "Inter"
+                ],
+                "code-sm": [
+                        "JetBrains Mono"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "11px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "stat-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "38px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "15px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "18px",
+                        {
+                                "lineHeight": "26px",
+                                "letterSpacing": "-0.015em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-sm": [
+                        "36px",
+                        {
+                                "lineHeight": "44px",
+                                "letterSpacing": "-0.025em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-xl-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.03em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "code-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { background-color: #0c0e12; color: #EDEDF0; }
+        .bg-surface { background-color: #111317; }
+        .bg-surface-dim { background-color: #0c0e12; }
+        .bg-surface-container { background-color: #181E2A; }
+        
+        .grid-bg {
+            background-image: linear-gradient(to right, #222A3A 1px, transparent 1px),
+                              linear-gradient(to bottom, #222A3A 1px, transparent 1px);
+            background-size: 48px 48px;
+            background-position: center center;
+        }
+        
+        .typewriter-seq::after {
+            content: "SYSTEM INITIALIZING";
+            animation: boot-seq 6s steps(1) infinite;
+        }
+
+        @keyframes boot-seq {
+            0% { content: "SYSTEM INITIALIZING"; }
+            25% { content: "IDENTITY DETECTED"; }
+            50% { content: "GHAYOOR KHAN"; }
+            75% { content: "SYSTEM ACTIVE"; }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #00e5ff;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 2.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #00e5ff; } }
+        
+        .glitch-hover:hover {
+            text-shadow: 2px 0 #00e5ff, -2px 0 #ff00ea;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .signal-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #00e5ff;
+            border-radius: 50%;
+            display: inline-block;
+            animation: signal-move 2s linear infinite;
+        }
+        
+        @keyframes signal-move {
+            0% { transform: translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(100px); opacity: 0; }
+        }
+        
+        .hover-reorg {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .hover-reorg:hover {
+            transform: translateY(-4px);
+            background-color: #111317;
+        }
+        .hover-reorg:hover .meta-shift {
+            color: #00e5ff;
+            transform: translateX(4px);
+        }
+        
+        .sys-node:hover ~ .sys-dep, .sys-dep.active {
+            border-color: #00e5ff;
+            box-shadow: 0 0 10px rgba(0,229,255,0.2);
+            color: #00e5ff;
+        }
+    </style>
+</head>
+<body class="font-body-sm text-body-sm antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-surface/80 backdrop-blur-md border-b border-outline-strong shadow-[0_0_15px_rgba(0,229,255,0.1)]">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">GHAYOOR / 01</div>
+<ul class="hidden md:flex gap-6">
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#identity">IDENTITY</a></li>
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#systems">SYSTEMS</a></li>
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#experiments">EXPERIMENTS</a></li>
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#journey">JOURNEY</a></li>
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#thinking">THINKING</a></li>
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#evidence">EVIDENCE</a></li>
+<li><a class="font-label-caps text-label-caps text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#connect">CONNECT</a></li>
+</ul>
+<div class="flex items-center gap-2 font-label-caps text-label-caps text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="hidden md:inline">● SYSTEM ACTIVE</span>
+</div>
+</nav>
+<!-- Hero / Boot Sequence -->
+<header class="relative w-full min-h-screen flex flex-col justify-center items-start px-margin-desktop overflow-hidden border-b border-outline-strong pt-16 bg-surface-dim">
+<div class="absolute right-0 top-0 w-[40%] h-full z-0 opacity-60 mix-blend-screen pointer-events-none" id="intelligence-field-container">
+<!-- STITCH_SHADER_START:ANIMATION_7 class="w-full h-full object-cover" -->
+<div class="w-full h-full object-cover" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_7" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_7');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+// Sophisticated computational network shader
+// Represents the "Intelligence Field" for Ghayoor Khan's portfolio
+
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+vec2 get_node_pos(vec2 id, float time) {
+    float h = hash(id);
+    return id + 0.5 + 0.35 * vec2(sin(time * (h + 0.5) + h * 6.28), cos(time * (h + 0.7) + h * 6.28));
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+    float aspect = u_resolution.x / u_resolution.y;
+    
+    // Scale UV for grid
+    vec2 st = uv * 8.0;
+    st.x *= aspect;
+    
+    vec2 ipos = floor(st);
+    vec2 fpos = fract(st);
+    
+    vec3 color = vec3(0.066, 0.074, 0.09); // Deep graphite background #111317
+    vec3 accent = vec3(0.0, 0.898, 1.0);   // Electric Cyan #00e5ff
+    
+    float m_dist = 100.0;
+    vec2 m_point;
+    
+    // Grid search for nearest nodes and connections
+    for(int y=-1; y<=1; y++) {
+        for(int x=-1; x<=1; x++) {
+            vec2 neighbor = vec2(float(x), float(y));
+            vec2 point = get_node_pos(ipos + neighbor, u_time * 0.4);
+            
+            // Mouse interaction: nodes react to cursor
+            float d_mouse = distance(point / 8.0, mouse * vec2(aspect, 1.0) / vec2(aspect, 1.0));
+            if (d_mouse < 0.2) {
+                point += (mouse * 8.0 - point) * (0.2 - d_mouse) * 2.0;
+            }
+            
+            float dist = distance(st, point);
+            m_dist = min(m_dist, dist);
+            
+            // Draw connections to neighbors
+            for(int ny=-1; ny<=1; ny++) {
+                for(int nx=-1; nx<=1; nx++) {
+                    if(nx == 0 && ny == 0) continue;
+                    vec2 n_neighbor = neighbor + vec2(float(nx), float(ny));
+                    vec2 n_point = get_node_pos(ipos + n_neighbor, u_time * 0.4);
+                    
+                    // Line rendering logic
+                    vec2 pa = st - point;
+                    vec2 ba = n_point - point;
+                    float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+                    float line_dist = length(pa - ba * h);
+                    
+                    // Signal pulses
+                    float pulse = fract(u_time * 0.2 + hash(ipos + neighbor) * 5.0);
+                    float pulse_active = smoothstep(0.05, 0.0, abs(h - pulse));
+                    
+                    float line_intensity = smoothstep(0.04, 0.01, line_dist) * 0.15;
+                    line_intensity += pulse_active * smoothstep(0.04, 0.01, line_dist) * 0.4;
+                    
+                    color += accent * line_intensity * (1.0 - distance(point, n_point) / 2.0);
+                }
+            }
+        }
+    }
+    
+    // Draw nodes
+    float node = smoothstep(0.06, 0.02, m_dist);
+    color += accent * node * 0.6;
+    
+    // Add very subtle grid
+    vec2 grid = abs(fract(st - 0.5) - 0.5) / fwidth(st);
+    float grid_line = min(grid.x, grid.y);
+    color += vec3(1.0) * (1.0 - smoothstep(0.0, 1.0, grid_line)) * 0.02;
+    
+    gl_FragColor = vec4(color, 1.0);
+}
+`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_7 -->
+</div>
+<div class="absolute inset-0 grid-bg opacity-10 mix-blend-overlay pointer-events-none"></div>
+<div class="relative z-10 max-w-[1200px] w-full mx-auto grid grid-cols-12 gap-gutter-lg">
+<!-- Metadata Top Left/Right -->
+<div class="col-span-12 flex flex-col md:flex-row justify-between w-full font-code-sm text-code-sm text-on-surface-subdued uppercase tracking-widest mb-12 border-b border-outline-strong pb-4">
+<span>GHAYOOR KHAN / AI ENGINEER / SOFTWARE ENGINEER</span>
+<span class="mt-2 md:mt-0">[ COORD: 31.5204 N, 74.3587 E ]</span>
+</div>
+<div class="col-span-12 md:col-span-8 flex flex-col gap-6 mt-12">
+<div class="font-code-sm text-code-sm text-primary mb-2 typewriter inline-block self-start"><span class="typewriter-seq"></span></div>
+<h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface uppercase tracking-tighter max-w-4xl leading-tight">
+            BUILDING <br/><span class="text-primary glitch-hover">INTELLIGENT</span> SOFTWARE.
+        </h1>
+<div class="flex flex-wrap gap-4 mt-6">
+<span class="px-3 py-1 bg-surface-container border border-outline-strong font-code-sm text-label-caps text-on-surface-variant">SYSTEM / GHAYOOR-01</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-strong font-code-sm text-label-caps text-on-surface-variant">MODE / BUILDING</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-strong font-code-sm text-label-caps text-on-surface-variant">DOMAIN / AI + SOFTWARE</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-8">
+<a class="bg-primary-container text-[#00363d] px-8 py-4 font-label-caps text-label-caps uppercase hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all duration-300 text-center" href="#experiments">EXPLORE EXPERIMENTS</a>
+<a class="border border-outline-strong text-on-surface px-8 py-4 font-code-sm text-code-sm hover:border-primary hover:text-primary transition-colors duration-300 text-center flex items-center justify-center gap-2" href="#resume">[ VIEW RESUME <span class="material-symbols-outlined text-[16px]">arrow_forward</span> ]</a>
+</div>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- Identity Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-surface" id="identity">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter-lg items-center">
+<div class="md:col-span-7 pr-0 md:pr-12">
+<h2 class="font-display-sm text-display-sm text-on-surface mb-6 border-l-4 border-primary pl-6 tracking-tight leading-tight">
+                I build software at the intersection of intelligence and engineering.
+            </h2>
+</div>
+<div class="md:col-span-5 flex flex-col gap-6">
+<p class="font-body-lg text-body-lg text-on-surface-variant border-b border-outline-strong pb-6">
+                My approach bridges the gap between raw machine learning capability and practical software engineering. I design systems that don't just demonstrate intelligence in a vacuum, but integrate seamlessly into wider technological ecosystems.
+            </p>
+<div class="bg-surface-container border border-outline-strong p-6 relative">
+<div class="absolute top-0 right-0 p-2 border-l border-b border-outline-strong font-code-sm text-[9px] text-on-surface-subdued">ID_CARD_01</div>
+<div class="flex flex-col gap-4">
+<div class="border-b border-outline-strong pb-2 flex justify-between items-end">
+<div class="font-label-caps text-label-caps text-on-surface-subdued">NAME</div>
+<div class="font-code-sm text-code-sm text-on-surface">GHAYOOR KHAN</div>
+</div>
+<div class="border-b border-outline-strong pb-2 flex justify-between items-end">
+<div class="font-label-caps text-label-caps text-on-surface-subdued">ROLE</div>
+<div class="font-code-sm text-code-sm text-on-surface">AI / SW ENGINEER</div>
+</div>
+<div class="border-b border-outline-strong pb-2 flex justify-between items-end">
+<div class="font-label-caps text-label-caps text-on-surface-subdued">LOCATION</div>
+<div class="font-code-sm text-code-sm text-on-surface">PAKISTAN</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="font-label-caps text-label-caps text-on-surface-subdued">STATUS</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-primary/10 border border-primary/30 font-code-sm text-[10px] text-primary">ONLINE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Systems Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-surface-dim relative overflow-hidden" id="systems">
+<div class="absolute inset-0 grid-bg opacity-5 mix-blend-overlay pointer-events-none"></div>
+<div class="max-w-[1200px] mx-auto relative z-10">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-code-sm text-primary text-xl">02</span>
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest">Systems Architecture</h2>
+</div>
+<div class="p-8 border border-outline-strong bg-surface rounded-sm">
+<!-- Pipeline Visualization Simulation -->
+<div class="flex flex-col gap-8 group/arch">
+<!-- Data -> Intel -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+<div class="border border-outline-variant p-4 bg-surface-container sys-node transition-colors duration-300 cursor-pointer hover:border-primary">
+<div class="font-label-caps text-on-surface-subdued mb-2">INTELLIGENCE</div>
+<div class="font-code-sm text-on-surface">LLMs, RAG, NLP</div>
+</div>
+<div class="hidden md:flex justify-center text-outline-strong material-symbols-outlined">arrow_forward</div>
+<div class="border border-outline-variant p-4 bg-surface-container transition-colors duration-300">
+<div class="font-label-caps text-on-surface-subdued mb-2">COMPUTER VISION</div>
+<div class="font-code-sm text-on-surface">YOLOv8, OpenCV</div>
+</div>
+</div>
+<div class="flex justify-center text-outline-strong material-symbols-outlined rotate-90 md:rotate-0 my-[-16px] md:my-0">south</div>
+<!-- Intel -> Eng -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+<div class="border border-primary/30 p-4 bg-primary/5 shadow-[0_0_10px_rgba(0,229,255,0.05)] sys-dep transition-all duration-300">
+<div class="font-label-caps text-primary mb-2">ENGINEERING CORE</div>
+<div class="font-code-sm text-on-surface">Python, FastAPI, Node.js</div>
+</div>
+<div class="hidden md:flex justify-center text-outline-strong material-symbols-outlined">arrow_forward</div>
+<div class="border border-outline-variant p-4 bg-surface-container sys-dep transition-all duration-300">
+<div class="font-label-caps text-on-surface-subdued mb-2">DATA &amp; TOOLS</div>
+<div class="font-code-sm text-on-surface">SQL, NoSQL, Git, Docker</div>
+</div>
+</div>
+<div class="flex justify-center text-outline-strong material-symbols-outlined rotate-90 md:rotate-0 my-[-16px] md:my-0">south</div>
+<!-- Eng -> Frontend -->
+<div class="grid grid-cols-1 md:grid-cols-1 gap-6 items-center">
+<div class="border border-outline-variant p-4 bg-surface-container text-center transition-all duration-300">
+<div class="font-label-caps text-on-surface-subdued mb-2">FRONTEND DELIVERY</div>
+<div class="font-code-sm text-on-surface">React, Next.js, TailwindCSS</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experiments Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-surface" id="experiments">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-code-sm text-primary text-xl">03</span>
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest">Experiments</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg">
+<!-- 01 FEATURED -->
+<div class="col-span-1 lg:col-span-2 border border-outline-strong bg-surface-container p-6 hover-reorg">
+<div class="flex justify-between items-start mb-6">
+<span class="font-code-sm text-primary border border-primary/30 px-2 py-1 meta-shift transition-transform">FEATURED_01</span>
+<a class="material-symbols-outlined text-on-surface-subdued hover:text-primary transition-colors" href="#">open_in_new</a>
+</div>
+<h3 class="font-headline-md text-on-surface mb-2">AI Resume Bullet Point Improver</h3>
+<p class="font-body-sm text-on-surface-variant mb-6 max-w-3xl">An intelligence layer that analyzes weak resume statements and reconstructs them into high-impact, metric-driven achievements.</p>
+<div class="flex flex-col md:flex-row items-center gap-2 border border-outline-variant p-4 bg-surface font-code-sm text-xs w-full overflow-hidden">
+<div class="flex-1 text-on-surface-muted min-w-[150px] border border-outline-strong p-2 text-center">RAW RESUME</div>
+<div class="flex items-center overflow-hidden w-24 relative"><span class="signal-dot"></span><span class="material-symbols-outlined text-on-surface-subdued text-sm absolute right-0">arrow_right</span></div>
+<div class="flex-1 text-primary text-center px-4 py-2 border border-primary/20 bg-primary/5 min-w-[150px]">LANGUAGE MODEL</div>
+<div class="flex items-center overflow-hidden w-24 relative"><span class="signal-dot" style="animation-delay: 0.5s"></span><span class="material-symbols-outlined text-on-surface-subdued text-sm absolute right-0">arrow_right</span></div>
+<div class="flex-1 text-primary text-center px-4 py-2 border border-primary/20 bg-primary/5 min-w-[150px]">PROCESSING</div>
+<div class="flex items-center overflow-hidden w-24 relative"><span class="signal-dot" style="animation-delay: 1s"></span><span class="material-symbols-outlined text-on-surface-subdued text-sm absolute right-0">arrow_right</span></div>
+<div class="flex-1 text-system-success min-w-[150px] border border-system-success/30 p-2 text-center bg-system-success/5">IMPROVED BULLET</div>
+</div>
+</div>
+<!-- 02 -->
+<div class="border border-outline-strong bg-surface-container p-6 hover-reorg">
+<div class="flex justify-between items-start mb-4">
+<span class="font-code-sm text-on-surface-subdued meta-shift transition-transform">EXP_02</span>
+<a class="material-symbols-outlined text-on-surface-subdued hover:text-primary transition-colors" href="#">open_in_new</a>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-2">QuizVibe</h3>
+<p class="font-body-sm text-on-surface-variant mb-4">Adaptive learning platform with progression algorithms.</p>
+<div class="flex flex-col md:flex-row items-center gap-2 border border-outline-variant p-3 bg-surface font-code-sm text-[10px] w-full overflow-hidden mb-4">
+<div class="flex-1 text-center border border-outline-strong p-1">USER DATA</div>
+<div class="flex items-center w-8"><span class="material-symbols-outlined text-on-surface-subdued text-[12px]">arrow_right</span></div>
+<div class="flex-1 text-primary text-center border border-primary/20 bg-primary/5 p-1">ALGORITHM</div>
+<div class="flex items-center w-8"><span class="material-symbols-outlined text-on-surface-subdued text-[12px]">arrow_right</span></div>
+<div class="flex-1 text-system-success text-center border border-system-success/30 bg-system-success/5 p-1">ADAPTATION</div>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden mt-auto">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<div class="font-code-sm text-[10px] text-on-surface-subdued mt-2 text-right">ADAPTIVE_PROGRESSION: 66%</div>
+</div>
+<!-- 03 -->
+<div class="border border-outline-strong bg-surface-container p-6 hover-reorg relative overflow-hidden">
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-code-sm text-on-surface-subdued meta-shift transition-transform">EXP_03</span>
+<a class="material-symbols-outlined text-on-surface-subdued hover:text-primary transition-colors" href="#">open_in_new</a>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-2 relative z-10">Real-Time Fire Detection</h3>
+<p class="font-body-sm text-on-surface-variant mb-4 relative z-10">YOLOv8 based computer vision inference pipeline.</p>
+<div class="flex flex-col md:flex-row items-center gap-2 border border-outline-variant p-3 bg-surface font-code-sm text-[10px] w-full overflow-hidden relative z-10">
+<div class="flex-1 text-center border border-outline-strong p-1 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[12px]">videocam</span> CAMERA</div>
+<div class="flex items-center overflow-hidden w-8 relative"><span class="signal-dot"></span></div>
+<div class="flex-1 text-primary text-center border border-primary/20 bg-primary/5 p-1">YOLOv8</div>
+<div class="flex items-center overflow-hidden w-8 relative"><span class="signal-dot" style="animation-delay: 0.5s"></span></div>
+<div class="flex-1 text-system-error text-center border border-system-error/30 bg-system-error/5 p-1">DETECTION</div>
+</div>
+<!-- Faux bounding box overlay -->
+<div class="absolute right-4 bottom-4 w-24 h-24 border border-system-error/50 bg-system-error/5 z-0 flex items-start justify-start p-1 pointer-events-none opacity-50">
+<span class="font-code-sm text-[8px] bg-system-error text-on-error px-1">FIRE: 0.94</span>
+</div>
+</div>
+<!-- 04 -->
+<div class="border border-outline-strong bg-surface-container p-6 hover-reorg col-span-1 lg:col-span-2">
+<div class="flex justify-between items-start mb-4">
+<span class="font-code-sm text-on-surface-subdued meta-shift transition-transform">EXP_04</span>
+<a class="material-symbols-outlined text-on-surface-subdued hover:text-primary transition-colors" href="#">open_in_new</a>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-2">Employee Management System</h3>
+<p class="font-body-sm text-on-surface-variant mb-6">Robust architecture for enterprise resource planning.</p>
+<div class="flex flex-col md:flex-row items-center gap-2 border border-outline-variant p-4 bg-surface font-code-sm text-xs w-full overflow-hidden">
+<div class="flex-1 text-center border border-outline-strong p-2">CLIENT</div>
+<div class="flex items-center overflow-hidden w-16 relative"><span class="signal-dot"></span></div>
+<div class="flex-1 text-primary text-center border border-primary/20 bg-primary/5 p-2">API LAYER</div>
+<div class="flex items-center overflow-hidden w-16 relative"><span class="signal-dot" style="animation-delay: 0.5s"></span></div>
+<div class="flex-1 text-center border border-outline-strong p-2">DATABASE</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Journey Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-surface-dim" id="journey">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-code-sm text-primary text-xl">04</span>
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest">Evolution</h2>
+</div>
+<div class="relative border-l border-outline-strong ml-4 md:ml-8 pl-8 py-4 space-y-12">
+<div class="relative">
+<div class="absolute w-3 h-3 bg-surface border border-primary rounded-full -left-[38px] top-1.5"></div>
+<div class="font-code-sm text-primary mb-1">CURRENT</div>
+<h3 class="font-headline-sm text-on-surface">AI Engineering</h3>
+<p class="font-body-sm text-on-surface-variant mt-2">Integrating LLMs, building RAG systems, deploying intelligent agents.</p>
+</div>
+<div class="relative">
+<div class="absolute w-3 h-3 bg-outline-strong rounded-full -left-[38px] top-1.5"></div>
+<div class="font-code-sm text-on-surface-subdued mb-1">[ENTRY_04]</div>
+<h3 class="font-headline-sm text-on-surface">Computer Vision &amp; ML</h3>
+<p class="font-body-sm text-on-surface-variant mt-2">Training models, YOLOv8 implementations, OpenCV real-time processing.</p>
+</div>
+<div class="relative">
+<div class="absolute w-3 h-3 bg-outline-strong rounded-full -left-[38px] top-1.5"></div>
+<div class="font-code-sm text-on-surface-subdued mb-1">[ENTRY_03]</div>
+<h3 class="font-headline-sm text-on-surface">Full-Stack Development</h3>
+<p class="font-body-sm text-on-surface-variant mt-2">Connecting APIs, robust backends with Python/Node, complex state management.</p>
+</div>
+<div class="relative">
+<div class="absolute w-3 h-3 bg-outline-strong rounded-full -left-[38px] top-1.5"></div>
+<div class="font-code-sm text-on-surface-subdued mb-1">[ENTRY_02]</div>
+<h3 class="font-headline-sm text-on-surface">Web Technologies</h3>
+<p class="font-body-sm text-on-surface-variant mt-2">React, modern frontend architectures, responsive design systems.</p>
+</div>
+<div class="relative">
+<div class="absolute w-3 h-3 bg-outline-strong rounded-full -left-[38px] top-1.5"></div>
+<div class="font-code-sm text-on-surface-subdued mb-1">[ENTRY_01]</div>
+<h3 class="font-headline-sm text-on-surface">Computer Science Foundations</h3>
+<p class="font-body-sm text-on-surface-variant mt-2">Algorithms, data structures, low-level architecture understanding.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Thinking Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-surface" id="thinking">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4 mb-16">
+<span class="font-code-sm text-primary text-xl">05</span>
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest">How I Think</h2>
+</div>
+<div class="space-y-16">
+<div class="border-l-4 border-outline-variant pl-6 hover:border-primary transition-colors duration-500">
+<h3 class="font-display-xl-mobile md:font-display-xl text-on-surface uppercase tracking-tighter leading-none mb-4">BUILD BEFORE OVERCOMPLICATING.</h3>
+<p class="font-body-lg text-on-surface-variant max-w-3xl">Get a working prototype to production fast. Premature optimization is the enemy of intelligent system design.</p>
+</div>
+<div class="border-l-4 border-outline-variant pl-6 hover:border-primary transition-colors duration-500">
+<h3 class="font-display-xl-mobile md:font-display-xl text-on-surface uppercase tracking-tighter leading-none mb-4">AI SHOULD SOLVE A REAL PROBLEM.</h3>
+<p class="font-body-lg text-on-surface-variant max-w-3xl">Don't use a large language model where a simple regex would do. Apply intelligence precisely where variability demands it.</p>
+</div>
+<div class="border-l-4 border-outline-variant pl-6 hover:border-primary transition-colors duration-500">
+<h3 class="font-display-xl-mobile md:font-display-xl text-on-surface uppercase tracking-tighter leading-none mb-4">SYSTEMS &gt; SCRIPTS.</h3>
+<p class="font-body-lg text-on-surface-variant max-w-3xl">A Jupyter notebook is an experiment. A deployed API with error handling, logging, and monitoring is a system.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Evidence Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-surface-dim" id="evidence">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-code-sm text-primary text-xl">06</span>
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest">Evidence</h2>
+</div>
+<div class="p-6 border border-outline-strong bg-surface flex flex-col items-center justify-center min-h-[200px] relative overflow-hidden group">
+<div class="absolute inset-0 grid-bg opacity-10"></div>
+<div class="relative z-10 text-center flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-on-surface-subdued group-hover:text-primary transition-colors duration-300">code_blocks</span>
+<div class="font-code-sm text-on-surface-variant">[ GITHUB_ACTIVITY_STREAM: GHAYOOR-105 ]</div>
+<a class="border border-outline-strong hover:border-primary text-on-surface hover:text-primary px-4 py-2 font-code-sm text-xs transition-colors" href="https://github.com/ghayoor-105" target="_blank">INITIALIZE CONNECTION</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Connect Section -->
+<section class="py-section-gap-desktop px-margin-desktop border-b border-outline-strong bg-primary-container text-[#00363d]" id="connect">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 py-12">
+<div>
+<div class="font-code-sm text-on-primary-container mb-4 font-bold">07 // TERMINAL_READY</div>
+<h2 class="font-display-xl-mobile md:font-display-xl uppercase tracking-tighter leading-none font-bold">LET'S BUILD <br/>SOMETHING INTELLIGENT.</h2>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<a class="bg-[#00363d] text-primary px-8 py-4 font-label-caps text-center uppercase hover:bg-surface hover:text-primary transition-colors border border-transparent hover:border-primary" href="https://linkedin.com/in/ghayoorkhan1015" target="_blank">LINKEDIN // GHAYOORKHAN1015</a>
+<a class="border border-[#00363d] text-[#00363d] px-8 py-4 font-label-caps text-center uppercase hover:bg-[#00363d] hover:text-primary transition-colors" href="https://github.com/ghayoor-105" target="_blank">GITHUB // GHAYOOR-105</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-gutter-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 bg-deep-void border-t border-outline-strong">
+<div class="font-label-caps text-label-caps text-on-surface-subdued">© 2024 GHAYOOR_KHAN // ARCHIVE_V2.0_AI_LAB</div>
+<ul class="flex gap-6 font-code-sm text-code-sm text-on-surface-subdued">
+<li><a class="hover:text-primary underline decoration-primary/30 transition-all duration-200" href="#">TERMINAL</a></li>
+<li><a class="hover:text-primary underline decoration-primary/30 transition-all duration-200" href="#">STABLE_DIFFUSION</a></li>
+<li><a class="hover:text-primary underline decoration-primary/30 transition-all duration-200" href="#">NEURAL_LINK</a></li>
+</ul>
+</footer>
+<script>
+    // WebGL Shader Setup
+    function initShader(canvas) {
+        const gl = canvas.getContext('webgl');
+        if (!gl) return;
+
+        const src = canvas.getAttribute('data-shader-src');
+        if (!src) return;
+
+        const vsSource = `
+            attribute vec4 a_position;
+            varying vec2 v_texCoord;
+            void main() {
+                gl_Position = a_position;
+                v_texCoord = a_position.xy * 0.5 + 0.5;
+            }
+        `;
+
+        function compileShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            return shader;
+        }
+
+        const vertexShader = compileShader(gl, gl.VERTEX_SHADER, vsSource);
+        const fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, src);
+
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        const positions = [
+            -1.0, -1.0,
+             1.0, -1.0,
+            -1.0,  1.0,
+            -1.0,  1.0,
+             1.0, -1.0,
+             1.0,  1.0,
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+        const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+        gl.enableVertexAttribArray(positionAttributeLocation);
+        gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const timeLocation = gl.getUniformLocation(program, "u_time");
+        const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+        const mouseLocation = gl.getUniformLocation(program, "u_mouse");
+
+        let mouseX = 0, mouseY = 0;
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = canvas.height - (e.clientY - rect.top);
+        });
+
+        function render(time) {
+            time *= 0.001;
+            
+            // Handle resizing
+            const displayWidth  = canvas.clientWidth;
+            const displayHeight = canvas.clientHeight;
+            if (canvas.width  !== displayWidth || canvas.height !== displayHeight) {
+                canvas.width  = displayWidth;
+                canvas.height = displayHeight;
+                gl.viewport(0, 0, canvas.width, canvas.height);
+            }
+
+            gl.uniform1f(timeLocation, time);
+            gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+            gl.uniform2f(mouseLocation, mouseX, mouseY);
+
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(render);
+        }
+        requestAnimationFrame(render);
+    }
+
+    document.querySelectorAll('canvas[data-shader-src]').forEach(initShader);
+</script>
+</body></html>
