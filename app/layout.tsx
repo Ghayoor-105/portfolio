@@ -18,6 +18,21 @@ export const metadata: Metadata = {
   title: "Ghayoor Khan // AI Laboratory",
   description:
     "Personal AI/Software Engineering portfolio of Ghayoor Khan — AI Engineer & Software Engineer.",
+  metadataBase: new URL("https://ghayoorkhan.vercel.app"),
+  openGraph: {
+    title: "Ghayoor Khan // AI Laboratory",
+    description:
+      "Personal AI/Software Engineering portfolio of Ghayoor Khan — AI Engineer & Software Engineer.",
+    url: "https://ghayoorkhan.vercel.app",
+    siteName: "Ghayoor Khan Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ghayoor Khan // AI Laboratory",
+    description:
+      "Personal AI/Software Engineering portfolio of Ghayoor Khan — AI Engineer & Software Engineer.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
