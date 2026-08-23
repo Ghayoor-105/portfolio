@@ -11,7 +11,7 @@ interface Node {
   speed: number;
 }
 
-const NODE_COUNT = 40;
+const NODE_COUNT = 24;
 const CONNECT_DISTANCE = 140;
 const CYAN = "0, 229, 255";
 
@@ -47,10 +47,10 @@ export function IntelligenceField() {
       }));
     }
 
-    function resize() {
+       function resize(newWidth?: number, newHeight?: number) {
       if (!canvas) return;
-      width = canvas.clientWidth;
-      height = canvas.clientHeight;
+      width = newWidth ?? canvas.clientWidth;
+      height = newHeight ?? canvas.clientHeight;
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
@@ -117,8 +117,11 @@ export function IntelligenceField() {
       }
     }
 
-    const resizeObserver = new ResizeObserver(() => {
-      resize();
+       const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const { width: newWidth, height: newHeight } = entry.contentRect;
+      resize(newWidth, newHeight);
       if (prefersReducedMotion) drawFrame(0);
     });
     resizeObserver.observe(canvas);
