@@ -17,7 +17,11 @@ export function DataFlowStrip({ stages }: DataFlowStripProps) {
       {stages.map((stage, index) => (
         <div key={stage.label} className="flex items-center gap-2">
           <span className={`border px-2 py-1 ${statusColor[stage.status]}`}>{stage.label}</span>
-          {index < stages.length - 1 && <span className="text-on-surface-subdued">→</span>}
+          {index < stages.length - 1 && (
+            <div className="relative flex h-4 w-6 items-center overflow-hidden">
+              <span className="signal-dot" style={{ animationDelay: `${index * 0.3}s` }} />
+            </div>
+          )}
         </div>
       ))}
     </div>

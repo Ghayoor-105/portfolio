@@ -13,6 +13,8 @@ interface Node {
 
 const NODE_COUNT = 24;
 const CONNECT_DISTANCE = 140;
+const MOUSE_INFLUENCE_RADIUS = 160;
+const MOUSE_PULL_STRENGTH = 18;
 const CYAN = "0, 229, 255";
 
 export function IntelligenceField() {
@@ -34,6 +36,7 @@ export function IntelligenceField() {
     let animationFrameId = 0;
     let isVisible = true;
     let isTabActive = true;
+    const mouse = { x: -9999, y: -9999 };
 
     function createNodes() {
       const count = Math.min(NODE_COUNT, Math.floor((width * height) / 18000));
@@ -47,7 +50,7 @@ export function IntelligenceField() {
       }));
     }
 
-       function resize(newWidth?: number, newHeight?: number) {
+    function resize(newWidth?: number, newHeight?: number) {
       if (!canvas) return;
       width = newWidth ?? canvas.clientWidth;
       height = newHeight ?? canvas.clientHeight;
@@ -63,8 +66,20 @@ export function IntelligenceField() {
       ctx.clearRect(0, 0, width, height);
 
       for (const node of nodes) {
-        node.x = node.baseX + Math.sin(time * 0.0002 * node.speed + node.phase) * 24;
-        node.y = node.baseY + Math.cos(time * 0.00025 * node.speed + node.phase) * 24;
+        let x = node.baseX + Math.sin(time * 0.0002 * node.speed + node.phase) * 24;
+        let y = node.baseY + Math.cos(time * 0.00025 * node.speed + node.phase) * 24;
+
+        const dx = mouse.x - x;
+        const dy = mouse.y - y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MOUSE_INFLUENCE_RADIUS && dist > 0.01) {
+          const pull = (1 - dist / MOUSE_INFLUENCE_RADIUS) * MOUSE_PULL_STRENGTH;
+          x += (dx / dist) * pull;
+          y += (dy / dist) * pull;
+        }
+
+        node.x = x;
+        node.y = y;
       }
 
       for (let i = 0; i < nodes.length; i++) {
@@ -109,7 +124,6 @@ export function IntelligenceField() {
       const startAnimation = () => {
         animationFrameId = requestAnimationFrame(loop);
       };
-
       if ("requestIdleCallback" in window) {
         requestIdleCallback(startAnimation, { timeout: 1000 });
       } else {
@@ -117,7 +131,7 @@ export function IntelligenceField() {
       }
     }
 
-       const resizeObserver = new ResizeObserver((entries) => {
+    const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0];
       if (!entry) return;
       const { width: newWidth, height: newHeight } = entry.contentRect;
@@ -139,11 +153,25 @@ export function IntelligenceField() {
     }
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
+    function handlePointerMove(e: PointerEvent) {
+      const rect = canvas!.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }
+    function handlePointerLeave() {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    }
+    canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("pointerleave", handlePointerLeave);
+
     return () => {
       cancelAnimationFrame(animationFrameId);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("pointerleave", handlePointerLeave);
     };
   }, []);
 
@@ -151,7 +179,7 @@ export function IntelligenceField() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-60"
+      className="pointer-events-auto absolute inset-0 h-full w-full opacity-60"
     />
   );
 }

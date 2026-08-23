@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { BootSequence } from "@/components/ui/BootSequence";
 
 const IntelligenceField = dynamic(() =>
   import("@/components/intelligence-field/IntelligenceField").then((mod) => mod.IntelligenceField)
@@ -15,7 +16,7 @@ export function Hero() {
         </div>
 
         <div className="mt-12 flex flex-col gap-6">
-          <div className="inline-block self-start font-mono text-[13px] text-primary">SYSTEM ACTIVE</div>
+          <BootSequence />
 
           <h1 className="max-w-4xl text-[32px] font-bold uppercase leading-tight tracking-tighter text-on-surface md:text-[48px] md:leading-[56px]">
             BUILDING <br />

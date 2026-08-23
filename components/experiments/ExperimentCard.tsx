@@ -7,9 +7,11 @@ interface ExperimentCardProps {
 
 export function ExperimentCard({ project }: ExperimentCardProps) {
   return (
-    <div className={`flex flex-col gap-4 border border-outline-strong bg-surface-container p-6 transition-colors duration-300 hover:border-primary/40 ${project.featured ? "md:col-span-2" : ""}`}>
+    <div className={`group flex flex-col gap-4 border border-outline-strong bg-surface-container p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/40 hover:bg-surface-dim ${project.featured ? "md:col-span-2" : ""}`}>
       <div className="flex items-start justify-between">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-primary">{project.id}</span>
+        <span className="border border-primary/30 px-2 py-1 font-mono text-[11px] uppercase tracking-widest text-primary transition-transform duration-300 group-hover:translate-x-1">
+          {project.id}
+        </span>
         {project.liveDemo ? (
           <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} live demo`} className="font-mono text-[11px] text-on-surface-subdued transition-colors duration-300 hover:text-primary">↗</a>
         ) : project.github ? (
