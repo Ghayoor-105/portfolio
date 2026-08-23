@@ -106,7 +106,15 @@ export function IntelligenceField() {
     if (prefersReducedMotion) {
       drawFrame(0);
     } else {
-      animationFrameId = requestAnimationFrame(loop);
+      const startAnimation = () => {
+        animationFrameId = requestAnimationFrame(loop);
+      };
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(startAnimation, { timeout: 1000 });
+      } else {
+        setTimeout(startAnimation, 200);
+      }
     }
 
     const resizeObserver = new ResizeObserver(() => {

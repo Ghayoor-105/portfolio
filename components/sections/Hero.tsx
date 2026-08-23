@@ -1,4 +1,8 @@
-import { IntelligenceField } from "@/components/intelligence-field/IntelligenceField";
+import dynamic from "next/dynamic";
+
+const IntelligenceField = dynamic(() =>
+  import("@/components/intelligence-field/IntelligenceField").then((mod) => mod.IntelligenceField)
+);
 
 export function Hero() {
   return (
