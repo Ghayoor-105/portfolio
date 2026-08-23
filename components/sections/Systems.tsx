@@ -3,9 +3,9 @@ import { techStack } from "@/data/techStack";
 
 export function Systems() {
   return (
-    <section id="systems" className="w-full border-b border-outline-strong bg-surface-dim px-margin-mobile py-section-gap-mobile md:px-margin-desktop md:py-section-gap-desktop">
+        <section id="systems" aria-labelledby="systems-heading" className="w-full border-b border-outline-strong bg-surface-dim px-margin-mobile py-section-gap-mobile md:px-margin-desktop md:py-section-gap-desktop">
       <div className="mx-auto w-full max-w-[1200px]">
-        <SectionHeading number="02" title="SYSTEMS ARCHITECTURE" />
+        <SectionHeading number="02" title="SYSTEMS ARCHITECTURE" headingId="systems-heading" />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {techStack.map((category) => (

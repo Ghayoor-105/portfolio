@@ -3,9 +3,9 @@ import { timeline } from "@/data/timeline";
 
 export function Journey() {
   return (
-    <section id="journey" className="w-full border-b border-outline-strong bg-surface-dim px-margin-mobile py-section-gap-mobile md:px-margin-desktop md:py-section-gap-desktop">
+      <section id="journey" aria-labelledby="journey-heading" className="w-full border-b border-outline-strong bg-surface-dim px-margin-mobile py-section-gap-mobile md:px-margin-desktop md:py-section-gap-desktop">
       <div className="mx-auto w-full max-w-[1200px]">
-        <SectionHeading number="04" title="EVOLUTION" />
+        <SectionHeading number="04" title="EVOLUTION" headingId="journey-heading" />
 
         <div className="relative flex flex-col gap-8 border-l border-outline-strong pl-8">
           {timeline.map((entry) => (

@@ -5,10 +5,10 @@ export function Connect() {
   const github = socials.find((s) => s.platform === "github");
 
   return (
-    <section id="connect" className="flex w-full flex-col items-center gap-8 bg-primary-container px-margin-mobile py-section-gap-mobile text-center md:px-margin-desktop md:py-section-gap-desktop">
+        <section id="connect" aria-labelledby="connect-heading" className="flex w-full flex-col items-center gap-8 bg-primary-container px-margin-mobile py-section-gap-mobile text-center md:px-margin-desktop md:py-section-gap-desktop">
       <span className="font-mono text-[11px] uppercase tracking-widest text-on-primary">07 // CONNECT</span>
 
-      <h2 className="max-w-2xl text-[28px] font-bold uppercase leading-tight tracking-tighter text-on-primary md:text-[40px]">
+            <h2 id="connect-heading" className="max-w-2xl text-[28px] font-bold uppercase leading-tight tracking-tighter text-on-primary md:text-[40px]">
         LET&apos;S BUILD SOMETHING INTELLIGENT.
       </h2>
 

@@ -3,10 +3,9 @@ import { principles } from "@/data/principles";
 
 export function Thinking() {
   return (
-    <section id="thinking" className="w-full border-b border-outline-strong bg-surface-dim px-margin-mobile py-section-gap-mobile md:px-margin-desktop md:py-section-gap-desktop">
+      <section id="thinking" aria-labelledby="thinking-heading" className="w-full border-b border-outline-strong bg-surface-dim px-margin-mobile py-section-gap-mobile md:px-margin-desktop md:py-section-gap-desktop">
       <div className="mx-auto w-full max-w-[1200px]">
-        <SectionHeading number="05" title="HOW I THINK" />
-
+        <SectionHeading number="05" title="HOW I THINK" headingId="thinking-heading" />
         <div className="flex flex-col gap-6">
           {principles.map((principle) => (
             <div
