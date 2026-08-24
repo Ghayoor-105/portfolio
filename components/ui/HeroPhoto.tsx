@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function HeroPhoto() {
   return (
-    <div className="avatar-float pointer-events-none absolute right-8 top-1/2 z-[5] hidden h-64 w-64 -translate-y-1/2 md:right-16 md:flex md:h-72 md:w-72">
+       <div className="avatar-float pointer-events-none absolute right-8 top-1/2 z-[5] hidden h-64 w-64 translate-y-[calc(-50%+36px)] md:right-16 md:flex md:h-72 md:w-72">
       <div className="absolute -inset-1.5 rounded-full border border-primary/30 shadow-[0_0_30px_4px_rgba(0,229,255,0.18)]" />
       <div className="absolute -left-1 -top-1 h-5 w-5 border-l-2 border-t-2 border-primary" />
       <div className="absolute -bottom-1 -right-1 h-5 w-5 border-b-2 border-r-2 border-primary" />

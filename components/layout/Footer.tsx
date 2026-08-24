@@ -2,7 +2,7 @@ import { socials } from "@/data/socials";
 
 export function Footer() {
   return (
-    <footer className="flex w-full flex-col items-center justify-between gap-4 border-t border-outline-strong bg-deep-void px-margin-mobile py-gutter-lg md:flex-row md:px-margin-desktop">
+        <footer className="flex w-full flex-col items-center justify-between gap-4 border-t border-primary/20 bg-surface-dim px-margin-mobile py-gutter-lg md:flex-row md:px-margin-desktop">
       <p className="font-mono text-[11px] uppercase tracking-widest text-on-surface-subdued">
         &copy; 2026 Ghayoor Khan
       </p>
