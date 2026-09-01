@@ -9,8 +9,7 @@ const IntelligenceField = dynamic(() =>
 export function Hero() {
   return (
     <header className="relative flex min-h-screen w-full flex-col items-start justify-center overflow-hidden border-b border-outline-strong bg-surface-dim px-margin-mobile pt-16 md:px-margin-desktop">
-      <IntelligenceField />
-      <HeroPhoto />
+           <IntelligenceField />
 
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <div className="mb-12 flex w-full flex-col justify-between border-b border-outline-strong pb-4 font-mono text-[13px] uppercase tracking-widest text-on-surface-subdued md:flex-row">
@@ -18,6 +17,7 @@ export function Hero() {
         </div>
 
         <div className="mt-12 flex flex-col gap-6">
+          <HeroPhoto />
           <BootSequence />
 
           <h1 className="max-w-4xl text-[32px] font-bold uppercase leading-tight tracking-tighter text-on-surface md:text-[48px] md:leading-[56px]">
