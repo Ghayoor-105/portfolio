@@ -2,13 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { StatusBeacon } from "@/components/ui/StatusBeacon";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const activeId = useScrollSpy(navigation.map((item) => item.href.replace("#", "")));
 
   useEffect(() => {
     function handleScroll() {
@@ -55,14 +57,17 @@ export function Navbar() {
         GHAYOOR / 01
       </a>
 
-      <ul className="hidden md:flex gap-6">
-        {navigation.map((item) => (
-          <li key={item.href}>
-            <a href={item.href} className="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant transition-colors duration-300 hover:text-primary">
-              {item.label}
-            </a>
-          </li>
-        ))}
+         <ul className="hidden md:flex gap-6">
+        {navigation.map((item) => {
+          const isActive = activeId === item.href.replace("#", "");
+          return (
+            <li key={item.href}>
+              <a href={item.href} className={`font-mono text-[11px] uppercase tracking-widest transition-colors duration-300 hover:text-primary ${isActive ? "text-primary" : "text-on-surface-variant"}`}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
 
       <div className="flex items-center gap-5">
