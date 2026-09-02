@@ -13,13 +13,13 @@ export function Connect() {
       </h2>
 
       <div className="flex flex-col gap-4 sm:flex-row">
-        {linkedin && (
-          <a href={linkedin.url} target="_blank" rel="noopener noreferrer" className="bg-on-primary px-8 py-4 font-mono text-[11px] uppercase tracking-widest text-primary-container transition-opacity duration-300 hover:opacity-90">
+               {linkedin && (
+          <a href={linkedin.url} target="_blank" rel="noopener noreferrer" className="bg-on-primary px-8 py-4 font-mono text-[11px] uppercase tracking-widest text-primary-container transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,54,61,0.35)] hover:opacity-90">
             {linkedin.label}
           </a>
         )}
         {github && (
-          <a href={github.url} target="_blank" rel="noopener noreferrer" className="border border-on-primary px-8 py-4 font-mono text-[11px] uppercase tracking-widest text-on-primary transition-colors duration-300 hover:bg-on-primary hover:text-primary-container">
+          <a href={github.url} target="_blank" rel="noopener noreferrer" className="border border-on-primary px-8 py-4 font-mono text-[11px] uppercase tracking-widest text-on-primary transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-on-primary hover:text-primary-container hover:shadow-[0_8px_20px_rgba(0,54,61,0.25)]">
             {github.label}
           </a>
         )}

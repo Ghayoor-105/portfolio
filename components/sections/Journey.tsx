@@ -10,9 +10,9 @@ export function Journey() {
         <div className="relative flex flex-col gap-8 border-l border-outline-strong pl-8">
           {timeline.map((entry) => (
             <div key={entry.id} className="relative">
-              <span
+                            <span
                 className={`absolute -left-[37px] top-1 h-3 w-3 rounded-full border-2 ${
-                  entry.isCurrent ? "border-primary bg-primary" : "border-outline-strong bg-surface-dim"
+                  entry.isCurrent ? "node-pulse border-primary bg-primary" : "border-outline-strong bg-surface-dim"
                 }`}
               />
               <span className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-on-surface-subdued">
