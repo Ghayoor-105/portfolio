@@ -1,68 +1,74 @@
 # PROJECT STATE — Ghayoor Khan Portfolio
 
-Last updated: Phase 3 (Project Architecture)
+Status: V1 COMPLETE — live in production
 
-## CURRENT PHASE
-Phase 4 — Content System (complete)
+## LIVE URL
+https://ghayoorkhan.vercel.app
 
 ## COMPLETED
-- Phase 0: Environment setup verified (Node v22.17.1, npm 11.1.0, Git 2.50.1,
-  VS Code 1.133.0)
-- Phase 0: Local project folder created, GitHub repo (Ghayoor-105/portfolio,
-  public) created and connected, initial commit pushed
-- Phase 1: Next.js 16.3.2 scaffolded (TypeScript, Tailwind v4, App Router,
-  Turbopack dev bundler, no src/ dir), committed and pushed
-- Phase 2: Stitch reference files (screen.png, code.html, DESIGN.md) added
-  under stitch-reference/, IMPLEMENTATION_SPEC.md written, committed and
-  pushed
-- Phase 3: Folder structure created — components/{layout,sections,
-  experiments,intelligence-field,ui}, data/, hooks/, lib/, types/;
-  PROJECT_STATE.md created
-- Phase 4: Typed content data files created — types/content.ts,
-  data/{projects,techStack,timeline,principles,socials,navigation}.ts.
-  All content verified against real sources (GitHub READMEs, LinkedIn) or
-  explicitly approved as-is by Ghayoor. `tsc --noEmit` passes clean.
+- Full environment setup, Next.js 16 + TypeScript + Tailwind v4 + App Router
+- Stitch design reference (screen.png, code.html, DESIGN.md) imported and
+  documented via stitch-reference/IMPLEMENTATION_SPEC.md
+- Project architecture: components/{layout,sections,experiments,
+  intelligence-field,ui}, data/, hooks/, lib/, types/
+- Full typed content system (all 6 data files), all content verified
+  against real sources or explicitly confirmed
+- Design tokens wired from DESIGN.md into Tailwind v4 @theme
+- Navigation: desktop nav with scroll-spy active-link highlighting, full
+  mobile menu (slide-in panel, backdrop, staggered links, keyboard support)
+- Hero: boot-sequence typewriter, real profile photo (glow ring + corner
+  brackets, responsive), Canvas 2D Intelligence Field (mouse-reactive)
+- All 8 sections built and verified: Hero, Identity, Systems, Experiments,
+  Journey, Thinking, Evidence, Connect
+- Responsive pass: clean at 390/430/768/1024/1280/1440px
+- Accessibility pass: aria-labelledby throughout, focus-visible rings,
+  WCAG AA contrast verified, full keyboard support
+- Performance pass: deferred animation start, code-split, forced-reflow
+  fixed, reduced node count (Lighthouse Performance 73-96 depending on run;
+  Accessibility 96, Best Practices 100, SEO 100 - all consistent)
+- SEO: full Open Graph + Twitter Card metadata, generated preview image,
+  verified via live social-debugger tool
+- Deployed to Vercel (auto-deploy on push to main), custom domain
+  ghayoorkhan.vercel.app
+- Customization pass: mobile menu, scroll spy, Journey pulse, Connect
+  button hover, footer color, Identity accent border, Hero photo
 
-## CURRENT TASK
-Awaiting approval to proceed to Phase 4 (Content System — typed data files)
-
-## KNOWN ISSUES
-None currently.
+## KNOWN ISSUES / OPEN TODOS
+- "VIEW RESUME" button links to #resume, which doesn't exist yet -
+  Ghayoor will upload a resume PDF and wire the link himself later
+- Systems section's pipeline layout is slightly visually dense (minor,
+  not broken)
+- Focus-ring animation (skipped by choice - kept as plain static outline)
 
 ## ARCHITECTURAL DECISIONS
-- DESIGN.md is the design-token source of truth (code.html's Tailwind
-  config partially disagrees with it and is NOT used directly)
-- Intelligence Field: Canvas 2D, not WebGL/Three.js (approved correction)
-- Icons: lucide-react, not Material Symbols CDN (approved correction)
-- Theme: dark only for V1, no light/dark toggle (approved correction)
-- Evidence section: static verified info only for V1, no live GitHub API
-  integration yet (approved correction)
-- Exactly 7 numbered sections after Hero: 01 Identity, 02 Systems,
-  03 Experiments, 04 Journey, 05 Thinking, 06 Evidence, 07 Connect
-- No `progress` / percentage / metric fields anywhere unless explicitly
-  verified by Ghayoor (approved correction)
-- Footer placeholder links (TERMINAL, STABLE_DIFFUSION, NEURAL_LINK)
-  removed from V1, not implemented (approved correction)
-- Deployment target: Vercel
+- DESIGN.md is the design-token source of truth over code.html's config
+- Intelligence Field: Canvas 2D (not WebGL/Three.js) - approved
+- Icons: lucide-react (not Material Symbols) - approved
+- Dark theme only for V1, no toggle
+- Evidence section: static verified info, no live GitHub API - V1 scope
+- Exactly 7 numbered sections after Hero (Identity through Connect)
+- No fabricated metrics/percentages anywhere
+- Footer placeholder links (TERMINAL/STABLE_DIFFUSION/NEURAL_LINK) removed
+- Footer background intentionally diverges from Stitch (teal, not graphite)
+  per Ghayoor's explicit request - documented deviation
+- Hero photo (real, not cartoon/3D avatar) added per Ghayoor's explicit
+  request after evaluating a 3D-avatar approach - documented deviation
 
 ## VERIFIED CONTENT
-- Name: Ghayoor Khan
-- Role: AI Engineer / Software Engineer
-- Education: BS Computer Science, Islamia College Peshawar (Chartered
-  University)
-- Based in: Peshawar, Khyber Pakhtunkhwa, Pakistan
-- GitHub: github.com/Ghayoor-105
-- LinkedIn: linkedin.com/in/ghayoorkhan1015
-- Projects (from LinkedIn/GitHub, descriptions from Stitch copy pending
-  your final confirmation): AI Resume Bullet Point Improver, QuizVibe,
-  Real-Time Fire Detection, Employee Management System
+- Name: Ghayoor Khan | Role: AI Engineer / Software Engineer
+- Education: BS Computer Science, Islamia College Peshawar
+  (Chartered University)
+- Location: Pakistan (hero coordinate display specifically stayed omitted;
+  Identity card shows "PAKISTAN")
+- GitHub: github.com/Ghayoor-105 | LinkedIn: linkedin.com/in/ghayoorkhan1015
+  | Email: ghayoorkhan1015@gmail.com (public, shown in Connect/footer)
+- 4 projects, all with verified GitHub links; 1 with a live demo URL
+- Timeline, principles, and Systems tech categories all confirmed as-is
+  or corrected by Ghayoor directly
 
-## TODO_GHAYOOR
-- Confirm hero location display (coordinates were unverified/incorrect —
-  Lahore's, not Peshawar's) — currently omitted, no location shown
-- Live demo URLs for QuizVibe, Real-Time Fire Detection, Task Manager Web
-  App (only AI Resume Bullet Point Improver has one so far)
-
-## NEXT PHASE
-Phase 5 — Design System (Tailwind config wired to DESIGN.md tokens,
-font loading via next/font)
+## NEXT STEPS (future sessions, not blocking V1)
+- Wire up the resume PDF link when ready
+- Add new projects to data/projects.ts as they're built (architecture
+  already supports this with no other code changes needed)
+- Optional: live GitHub API integration for Evidence section (deferred
+  from V1 by design)
